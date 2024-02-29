@@ -1,0 +1,78 @@
+{% include 'header.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Quick Example</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post" enctype= "multipart/form-data">
+                {% csrf_token %}
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Select Category</label>
+                    
+                    <select name="{{frm.pcatagory.name}}">
+                      {% for x in data %}
+                        <option>{{x.category}}</option>
+                      {% endfor%}
+                    </select>
+                    
+                      <label for="exampleInputEmail1">Select Subcategory</label>
+                      
+                      <select name="{{frm.psubcatagory.name}}">
+                          {% for x in subcate %}
+                            <option>{{x.subitem}}</option>
+                          {% endfor%}
+                      </select>
+                      <div>
+                        <input type="text" name="{{frm.name.name}}" placeholder="enter name">
+                      </div>
+                      <div>
+                        <input type="file" name="{{frm.image.name}}" placeholder="image">
+                      </div>
+                      <div>
+                        <input type="text" name="{{frm.discription.name}}" placeholder="enter discription">
+                      </div>
+                      <div>
+                        <input type="text" name="{{frm.price.name}}" placeholder="enter price">
+                      </div>
+                      <div>
+                        <input type="text" name="{{frm.quantity.name}}" placeholder="quantity">
+                      </div>
+                      <div>
+                        <input type="text" name="{{frm.discount.name}}" placeholder="discount">
+                      </div>
+                      <div>
+                        <input type="text" name="{{frm.pstatus.name}}" placeholder="status" value="1">
+                      </div>
+  
+                    </div>
+                  </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}
